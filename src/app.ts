@@ -1,21 +1,15 @@
 import * as dotenv from 'dotenv'
-
-import express, {Request, Response} from "express"
-import AppDataSource from "./database/db.config"
+import express, {Express, Request, Response} from "express"
+import bodyParser from 'body-parser'
+import cors from "cors"
 
 dotenv.config()
 
-const port = process.env.APP_PORT
-const app = express()
 
-app.use(express.json())
+const app: Express = express()
 
-AppDataSource.initialize().then(() => {
-    app.listen(port, () => {
-        console.log("Server is running!")
-    })
-})
-.catch(() => {
-    console.log("The connection to the database failed!")
-})
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}))
 
+export default app;
