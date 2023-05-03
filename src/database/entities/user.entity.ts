@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
 @Entity('users')
-export class UserEntity {
+export class User {
     @PrimaryGeneratedColumn()
-    id: number
+    id: string
 
     @Column({type: "varchar"})
     userName: string
@@ -14,4 +14,9 @@ export class UserEntity {
     @Column({type : 'varchar'})
     password: string
 
+    @CreateDateColumn()
+    createdAt: Date;
+  
+    @UpdateDateColumn()
+    updatedAt: Date;
 }
