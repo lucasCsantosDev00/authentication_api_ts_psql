@@ -5,6 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch src --exec 'ts-node' -r tsconfig-paths/register src/index.ts",
+    "typeorm": "typeorm-ts-node-commonjs -d src/database/data-source.ts",
+    "migration:show": "yarn typeorm migration:show",
+    "migration:create": "node scripts/migration-create.js",
+    "migration:run": "yarn typeorm migration:run",
+    "migration:revert": "yarn typeorm migration:revert",
     "build": "tsc -p .",
     "start": "node dist/app.js"
   },
