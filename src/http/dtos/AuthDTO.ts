@@ -2,7 +2,7 @@ import { IsNotEmpty, MinLength, MaxLength, IsEmail } from "class-validator";
 import { User } from "@/database/entities/user.entity";
 import { IsUnique } from "../validators/isUniqueValidator";
 
-export class signUpDTO {
+export class SignUpDTO {
   @IsNotEmpty()
   @MinLength(3)
   @MaxLength(20)
