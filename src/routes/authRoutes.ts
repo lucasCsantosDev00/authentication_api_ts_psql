@@ -6,5 +6,6 @@ const authController = new AuthController()
 const router = Router()
 
 router.post("/signup", ErrorHandler.catchErrors(authController.signUp))
+router.post("/login", ErrorHandler.catchErrors(authController.login))
 
 export default router;
