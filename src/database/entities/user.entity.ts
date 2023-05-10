@@ -1,9 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert } from "typeorm"
-import {hash} from 'bcrypt'
+import {hash} from 'bcryptjs'
 
 @Entity('users')
 export class User {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("uuid")
     id: string
 
     @Column({type: "varchar"})
