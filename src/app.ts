@@ -1,8 +1,9 @@
 import * as dotenv from 'dotenv'
-import express, {Express, Request, Response} from "express"
+import express, {Express, NextFunction, Request, Response} from "express"
 import bodyParser from 'body-parser'
 import cors from "cors"
 import authRoute from './routes/authRoutes'
+import homeRoute from './routes/homeRoutes'
 import { ErrorHandler } from './http/middlewares/ErrorHandler'
 
 dotenv.config()
@@ -15,6 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use("/auth", authRoute)
+app.use("/", homeRoute)
 
 app.use("*", (req: Request, res: Response) => {
     return res.status(404).json({
