@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: authdb
+    volumes:
+      - ./data:/var/lib/postgresql/data  
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app  
+    environment:
+      NODE_ENV: development
+      DB_HOST: postgres
+      DB_USERNAME: postgres
+      DB_PASSWORD: 1234
+      DB_DATABASE: authdb
+    depends_on:
+      - postgres
+    command: yarn dev
+    ports:
+      - "3000:3000"
