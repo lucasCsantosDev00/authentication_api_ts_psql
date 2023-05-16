@@ -8,7 +8,7 @@ AppDataSource.initialize().then(() => {
         console.log("Server is running!")
     })
 })
-.catch(() => {
-    console.log("The connection to the database failed!")
+.catch((error) => {
+    console.log("The connection to the database failed!", error)
 })
 

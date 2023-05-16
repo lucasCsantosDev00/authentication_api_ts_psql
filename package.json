@@ -12,9 +12,10 @@
     "migration:revert": "yarn typeorm migration:revert",
     "build": "tsc -p .",
     "start": "node dist/app.js"
+
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas Carvalho Dos Santos <lucascarvalho22056@outlook.com>",
   "license": "ISC",
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
